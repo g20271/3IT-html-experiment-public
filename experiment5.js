@@ -55,7 +55,7 @@ function draw(){
 }
 
 function calc(formula, x){
-    return new Function('return ' + formula.replace("x", "(" + x +" )"))()
+    return new Function('return ' + formula.replace(/x/g, "(" + x +" )"))()
 }
 
 let calculate_button = document.getElementById('calculate_button')
