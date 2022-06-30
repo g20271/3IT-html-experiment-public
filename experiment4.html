@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>二次方程式</title>
+
+        <link rel="stylesheet" href="experiment4.css">
+
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script"  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
+    <body>
+        <div>\(ax^{2}+bx+c=0\)</div>
+        <div>
+            <label for="a">\(a\):</label>
+            <input type="number" id="a" name="a" oninput="calculate()">
+            <label for="b">\(b\):</label>
+            <input type="number" id="b" name="b" oninput="calculate()">
+            <label for="c">\(c\):</label>
+            <input type="number" id="c" name="c" oninput="calculate()">
+        </div>
+        <div>\(x=\frac{-b\pm\sqrt{b^{2}-4ac}}{2a}\)の結果を表示します</div>
+        <div id="discriminant"></div>
+        <div id="solution"></div>
+
+        <script src="experiment4.js"></script>
+    </body>
+</html>

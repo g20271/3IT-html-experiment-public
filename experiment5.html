@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>グラフ表示</title>
+        <link rel="stylesheet" href="experiment5.css">
+    </head>
+    <body>
+        <main>
+        <canvas id="graph" width="800" height="800"></canvas>
+        <div class="settings">
+            <div>
+                <label for="formula">y = </label>
+                <input type="text" id="formula" name="formula">
+                <input type="button" id="calculate_button" name="calculate" value="Draw">
+            </div>
+            <div>
+                <label for="scale">scale: </label>
+                <input type="number" id="scale" name="scale" value="40">
+            </div>
+        </div>
+        </main>
+
+        <script src="experiment5.js"></script>
+    </body>
+</html>
