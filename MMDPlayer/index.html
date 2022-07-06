@@ -196,6 +196,16 @@
         canvasSizeW = parseInt( window.getComputedStyle( document.getElementById( 'webgl' ) ).width );
         canvasSizeH = parseInt( window.getComputedStyle( document.getElementById( 'webgl' ) ).height);
         effect.setSize( canvasSizeW, canvasSizeH );
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+
+        // レンダラーのサイズを調整する
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(width, height);
+
+        // カメラのアスペクト比を正す
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
       }, false );
     //-----------------------------------------------------------------------------------------------
     // モーションの開始/一時停止ボタン
