@@ -21,7 +21,7 @@
   </head>
   <body>
     <!-- MMDが描画されるHTML要素 -->
-    <div id="webgl" style="width: 100%;"></div>
+    <div id="webgl" style="width: auto; height: 95vh;"></div>
       <!-- モーションの開始/一時停止ボタン -->
     <button type="button" id="start">スタート</button>
     <script>
@@ -36,7 +36,7 @@
       let renderer = {};
       let scene = {};
       let canvasSizeW = parseInt( window.getComputedStyle( document.getElementById( 'webgl' ) ).width );
-      let canvasSizeH = parseInt( window.getComputedStyle( document.getElementById( 'webgl' ) ).width ) * 540 / 960;
+      let canvasSizeH = parseInt( window.getComputedStyle( document.getElementById( 'webgl' ) ).height );
       
       let vector3 = new THREE.Vector3();
       
@@ -194,7 +194,7 @@
       window.addEventListener( 'resize', function () {
         // setScissorとsetViewportで使用する変数（canvasSizeW、canvasSizeH）の値を更新
         canvasSizeW = parseInt( window.getComputedStyle( document.getElementById( 'webgl' ) ).width );
-        canvasSizeH = parseInt( window.getComputedStyle( document.getElementById( 'webgl' ) ).width ) * 540 / 960;
+        canvasSizeH = parseInt( window.getComputedStyle( document.getElementById( 'webgl' ) ).height);
         effect.setSize( canvasSizeW, canvasSizeH );
       }, false );
     //-----------------------------------------------------------------------------------------------
