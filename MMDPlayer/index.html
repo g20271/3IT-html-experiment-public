@@ -2,21 +2,21 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <script src="./three.js"></script>
-    <script src="./MMDToonShader.js"></script>
-    <script src="./mmdparser.js"></script>
-    <script src="./TGALoader.js"></script>
-    <script src="./OutlineEffect.js"></script>
-    <script src="./MMDLoader.js"></script>
+    <script type="text/javascript" src="./Scripts/three.js"></script>
+    <script type="text/javascript" src="./Scripts/MMDToonShader.js"></script>
+    <script type="text/javascript" src="./Scripts/mmdparser.js"></script>
+    <script type="text/javascript" src="./Scripts/TGALoader.js"></script>
+    <script type="text/javascript" src="./Scripts/OutlineEffect.js"></script>
+    <script type="text/javascript" src="./Scripts/MMDLoader.js"></script>
     <!-- GitHub https://github.com/kripken/ammo.js/tree/main/builds よりダウンロード -->
-    <script src="./ammo.js"></script>
+    <script type="text/javascript" src="./Scripts/ammo.js"></script>
     <!-- ./examples/js/animation/CCDIKSolver.js (r131) -->
-    <script src="./CCDIKSolver.js"></script>
+    <script type="text/javascript" src="./Scripts/CCDIKSolver.js"></script>
     <!-- ./examples/js/animation/MMDPhysics.js (r131) -->
-    <script src="./MMDPhysics.js"></script>
+    <script type="text/javascript" src="./Scripts/MMDPhysics.js"></script>
     <!-- ./examples/js/animation/MMDAnimationHelper.js (r131) -->
-    <script src="./MMDAnimationHelper.js"></script>
-    <script src="./OrbitControls.js"></script>
+    <script type="text/javascript" src="./Scripts/MMDAnimationHelper.js"></script>
+    <script type="text/javascript" src="./Scripts/OrbitControls.js"></script>
     <title>MMD Player</title>
   </head>
   <body>
@@ -48,11 +48,11 @@
       // モーションのインデックス、-1の時はモーションは適用されていないことを示す
       let motionIndex = -1;
       // 読み込むMMD 3Dモデルのファイル(PMXファイル)をオブジェクトで管理する
-      const PMX_FILE = { name: 'ニコニ立体ちゃん', file: 'Alicia_solid.pmx', emissive: 0.3, multiply: 0.0739, physics: true, receiveShadow: true, thickness: 0.001 };
+      const PMX_FILE = { name: 'ニコニ立体ちゃん', file: './Model/Alicia_solid.pmx', emissive: 0.3, multiply: 0.0739, physics: true, receiveShadow: true, thickness: 0.001 };
       // 読み込むモーションファイル(VMDファイル)をオブジェクトで管理する
-      const VMD_FILE = { name: '2分ループステップ1', file: './motion.vmd' };
+      const VMD_FILE = { name: '好き！雪！本気マジック', file: './Music/motion.vmd' };
 
-      let music = new Audio('music.m4a');
+      let music = new Audio('./Music/music.m4a');
   //***********************************************************************************************
   // メインプログラム
   //***********************************************************************************************
