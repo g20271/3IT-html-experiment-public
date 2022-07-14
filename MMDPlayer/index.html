@@ -18,11 +18,13 @@
     <link rel="shortcut icon" href="favicon.ico">
 </head>
 
-<body>
-    <div id="webgl" style="width: auto; height: 95vh;"></div>
-    <button type="button" id="start" style="width: 70px;">スタート</button>
-    <input type="file" id="vmd_input" accept=".vmd">
-    <input type="file" id="music_input" accept="audio/*">
+<body style="box-sizing:border-box;">
+    <div id="webgl" style="width: auto; height: calc(100vh - 40px); box-sizing:border-box;"></div>
+    <div style="height: 20px; box-sizing:border-box;">
+        <button type="button" id="start" style="width: 15%; box-sizing:border-box;">スタート</button>
+        <input type="file" id="vmd_input" accept=".vmd">
+        <input type="file" id="music_input" accept="audio/*">
+    </div>
     <script>
         let start_button = document.getElementById('start');
 
@@ -45,7 +47,7 @@
         let motionIndex = -1;
 
         const PMX_FILE = { name: 'ニコニ立体ちゃん', file: './Model/Alicia_solid.pmx', emissive: 0.3, multiply: 0.0739, physics: true, receiveShadow: true, thickness: 0.001 };
-        
+
         const fileVMD = document.getElementById("vmd_input");
         const fileMusic = document.getElementById("music_input");
         let VMD_URL, Music_URL;
@@ -53,12 +55,12 @@
 
         let music
 
-        
+
         const LOADER_2 = new THREE.MMDLoader();
 
-        fileVMD.addEventListener("change", function(e){
+        fileVMD.addEventListener("change", function (e) {
             VMD_FILE = { name: 'test', file: URL.createObjectURL(e.target.files[0]) };
-            
+
             animationMixer = ANIMATION_HELPER.objects.get(mesh).mixer;
             animationMixer.stopAllAction();
             LOADER_2.loadAnimation(VMD_FILE.file, mesh, function (motion) {
@@ -69,7 +71,7 @@
 
             start_button.innerHTML = "スタート"
         })
-        fileMusic.addEventListener("change", function(e){
+        fileMusic.addEventListener("change", function (e) {
             music = new Audio(URL.createObjectURL(e.target.files[0]));
         })
 
@@ -146,7 +148,7 @@
                     vector3.setY(0.5 * BOUNDING_BOX.max.y);
                     light.target.position.copy(new THREE.Vector3(0, 0.5 * BOUNDING_BOX.max.y, 0));
 
-                    
+
                     if (PMX_FILE.physics) {
                         ANIMATION_HELPER.add(mesh, { animation: motions, physics: true });
                     } else {
@@ -171,18 +173,16 @@
             canvasSizeW = parseInt(window.getComputedStyle(document.getElementById('webgl')).width);
             canvasSizeH = parseInt(window.getComputedStyle(document.getElementById('webgl')).height);
             effect.setSize(canvasSizeW, canvasSizeH);
-            const width = window.innerWidth;
-            const height = window.innerHeight;
 
             renderer.setPixelRatio(window.devicePixelRatio);
-            renderer.setSize(width, height);
+            renderer.setSize(canvasSizeW, canvasSizeH);
 
-            camera.aspect = width / height;
+            camera.aspect = canvasSizeW / canvasSizeH;
             camera.updateProjectionMatrix();
         }, false);
 
         document.getElementById('start').addEventListener('click', function () {
-            
+
 
             if (motionIndex === -1) {
                 animationMixer.clipAction(motions).play();
@@ -194,7 +194,7 @@
             } else if (motionIndex === 1 && animationMixer.clipAction(motions).paused === false) {
                 animationMixer.clipAction(motions).paused = true;
                 music.pause();
-                
+
                 start_button.innerHTML = "再開"
             } else if (motionIndex === 1 && animationMixer.clipAction(motions).paused === true) {
                 animationMixer.clipAction(motions).paused = false;
