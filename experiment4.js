@@ -6,7 +6,11 @@ function calculate(){
     let d = (b**2)-(4*a*c)
     let discriminant = document.getElementById('discriminant')
     let solution = document.getElementById('solution')
-    if (d > 0){
+
+    if (a == 0) {
+        discriminant.innerText = "未実装";
+    }
+    else if (d > 0){
         discriminant.innerText = "異なる二つの実数解"
 
         let x1 = (-b + Math.sqrt(d))/2*a
